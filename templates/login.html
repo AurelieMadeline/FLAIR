@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block body %}
+<div id="loginBox">
+    <form action="/login" method="POST">
+        <div>
+            <label class="leftLabel" for="email">Email</label>
+            <input type="text" id="email" name="email" placeholder="email">
+        </div>
+        <div>
+            <label class="leftLabel" for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="password">
+        </div>
+        <div>
+            <input class="loginButton" type="submit" value="Login">
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block body %}
+ 
+<div class="container">
+    <form action="{{ url_for("user_signup") }}" method="POST">
+    	<div>
+            <label class="leftLabel" for="age">Username</label>
+            <input type="text" id="username" name="username" placeholder="username">
+        </div>
+        <div>
+            <label class="leftLabel" for="email">Email</label>
+            <input type="text" id="email" name="email" placeholder="email">
+        </div>
+        <div>
+            <label class="leftLabel" for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="password">
+        </div>
+        <div>
+            <label class="leftLabel" for="location">Location</label>
+            <input type="text" data-provide="typeahead" class="typeahead form-control" id="location_one" name="location" placeholder="location">
+        </div>
+        <div>
+            <input class="loginButton" type="submit" value="Signup">
+        </div>
+    </form>
+</div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="static/bootstrap.min.js"></script>
+
+  <script src="static/main.js"></script>
+  <script type="text/javascript" src="static/jquery.autocomplete.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
+  <script src="static/typeahead.bundle.js"></script>
+{% endblock %} 
