@@ -46,7 +46,8 @@ class Picture(Base):
 class Location(Base):
 	__tablename__="locations"
 	id = Column(Integer, primary_key=True)
-	location = Column(String,nullable=False)
+	location_name = Column(String,nullable=False)
+
 
 def connect():
     global ENGINE

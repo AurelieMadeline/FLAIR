@@ -1,12 +1,16 @@
-from flask import Flask, render_template, redirect, request, flash, session, url_for
-import model
+from flask import Flask, render_template, redirect, request, flash, session, url_for, send_from_directory
+import model, os
+from werkzeug import secure_filename
+
+UPLOAD_FOLDER = 'static/images/'
+ALLOWED_EXTENSIONS = set(['png','jpg', 'jpeg'])
 
 app = Flask(__name__)
-app.secret_key = #secret key goes here
+app.secret_key = "ABC"
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 @app.route("/")
 def index():
-    print "hello, running index"
     return render_template("test.html")
    
 @app.route("/login_form")
@@ -31,22 +35,32 @@ def user_signup():
         return redirect(url_for("signup_form"))
     if not password:
         flash("Please enter a password")
-        return redirect("/signup")
+        return redirect(url_for("signup_form"))
 
     # check for email
     u = model.session.query(model.User).filter(model.User.email==email).first()
 
     # if exists, ask if they want to login
     if u:
-        flash("User already exists! LOGIN DAMMIT")
+        flash("User already exists! Please, login.")
         return redirect(url_for("login_form"))
     # if doesn't exist, add user info to database as new user
     else:
         u = model.User()
         u.username = username
         u.email = email
-        u.password = password
-        u.location = location
+        u.password = password # hash later?
+       
+        # how do we turn location into an id?
+        l= model.session.query(model.Location).filter_by(location_name=location).first()
+        if not l:
+            l=model.Location()
+            l.location_name=location
+            model.session.add(l)
+            model.session.commit()
+
+        u.location_id=l.id
+
         model.session.add(u)
         model.session.commit()
         
@@ -81,7 +95,47 @@ def user_logout():
     print session
     return redirect("/")
 
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
 
+@app.route("/upload", methods=['GET', 'POST'])
+def upload_file():
+
+    #to check if user_id is in session
+
+    if request.method == 'POST':
+        file = request.files['file']
+        if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            notes = request.form.get("notes")
+            style = request.form.get("style")
+            brand = request.form.get("brand")
+
+            p=model.Picture()
+            p.user_id = session["user_id"]
+            p.filename = filename
+            p.notes = notes
+            p.style = style
+            p.brand = brand
+            model.session.add(p)
+            model.session.commit()
+
+            return redirect(url_for('success_upload',
+                                    filename=filename))
+    return render_template ("upload.html")
+
+@app.route('/uploads/<filename>')
+def uploaded_file(filename):
+    return send_from_directory(app.config['UPLOAD_FOLDER'],
+                               filename)
+
+
+@app.route("/fileview/<filename>")
+def success_upload(filename):
+    return render_template("preview.html")
 
 if __name__ == "__main__":
     app.run(debug = True)
+

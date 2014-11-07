@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block body %}
+    <title>Upload image</title>
+    <h1>Upload your image</h1>
+    <form action="{{ url_for("upload_file") }}" method=post enctype=multipart/form-data>
+      <p><input type=file name=file> <br>
+         <input type=submit value=Upload>
+       <div>
+          <input type="text" id="brand" name="brand" placeholder="brand"> <br>
+          <input type="text" id="notes" name="notes" placeholder="notes"> 
+           <select name="style">
+				<option value="Style1">Choose your style</option>
+				<option value="Street style">Street style</option>
+				<option value="Sporty">Sporty</option>
+				<option value="Vintage">Vintage</option>
+				<option value="Classic">Classic</option>
+				<option value="Elegent">Elegent</option>
+				<option value="Wedding">Wedding</option>
+				<option value="Festival">Festival</option>
+				<option value="Glam">Glam</option>
+				<option value="Artistic">Artistic</option>
+				<option value="Sophisticated">Sophisticated</option>
+				<option value="Nautical">Nautical</option>
+				<option value="Bold">Bold</option>
+				<option value="Statement">Statement</option>
+				<option value="Boho">Boho</option>
+				<option value="Gangsta">Gangsta</option>
+				<option value="Harajuku">Harajuku</option>
+				<option value="Nerdy">Nerdy</option>
+				<option value="Grunge">Grunge</option>
+				<option value="Steampunk">Steampunk</option>
+				<option value="Preppy">Preppy</option>
+				<option value="Couture">Couture</option>
+				<option value="Earthy">Earthy</option>
+				<option value="Hippie">Hippie</option>
+				</select>
+        </div> <br>
+        <input type="submit" value="Submit">
+    </form>
+   
+
+{% endblock %} 
+    
