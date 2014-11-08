@@ -48,7 +48,6 @@ class Location(Base):
 	id = Column(Integer, primary_key=True)
 	location_name = Column(String,nullable=False)
 
-
 def connect():
     global ENGINE
     global Session

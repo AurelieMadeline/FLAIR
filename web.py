@@ -112,13 +112,23 @@ def upload_file():
             notes = request.form.get("notes")
             style = request.form.get("style")
             brand = request.form.get("brand")
-
+            location = request.form.get("location")
             p=model.Picture()
             p.user_id = session["user_id"]
             p.filename = filename
             p.notes = notes
             p.style = style
             p.brand = brand
+
+            l= model.session.query(model.Location).filter_by(location_name=location).first()
+            if not l:
+                l=model.Location()
+                l.location_name=location
+                model.session.add(l)
+                model.session.commit()
+
+            p.location_id=l.id
+
             model.session.add(p)
             model.session.commit()
 
@@ -138,4 +148,3 @@ def success_upload(filename):
 
 if __name__ == "__main__":
     app.run(debug = True)
-
