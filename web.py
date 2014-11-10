@@ -12,8 +12,8 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 @app.route("/")
 def index():
     return render_template("test.html")
-   
-@app.route("/login_form")
+    
+@app.route("/login")
 def login_form():
     return render_template("login.html")
 
@@ -85,7 +85,7 @@ def user_login():
         return redirect("/")
     else:
         flash("Email/password not valid, please try again.")
-        return redirect("/login_form")
+        return redirect("/login")
 
 @app.route("/logout")
 def user_logout():
