@@ -1,23 +1,28 @@
 <html>
     <head>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
         <link rel="stylesheet" href="/static/css/style.css" />
+        <link href='http://fonts.googleapis.com/css?family=Raleway:500' rel='stylesheet' type='text/css'>
+        <link rel='stylesheet' href='http://codepen.io/assets/libs/fullpage/jquery-ui.css'>
+
     </head>
     <body>
-        <div class="navbar navbar-inverse navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="/">People of the World</a>
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                    
-                        <li><a href="/login">Log In</a></li>
-                    </ul>
-                </div>
-            </div>
+       <div class="navbar">
+        <ul class="menu">
+             <li id="menu-item">
+                <a href="/login">Log in </a>
+            </li>
+            <li id="menu-item">
+                <a href="/signup">Sign up </a>
+            </li>
+        </ul>
         </div>
+        <div class=pic-body></div>
+
+        <div class= content">
+
+
         <div class="container">
+
             {% with messages = get_flashed_messages() %}
             {% if messages %}
             {% for message in messages %}
@@ -29,7 +34,7 @@
             {% endwith %}
             {% block body %}{% endblock %}
         </div>
-
+         <link rel='stylesheet' href='http://codepen.io/assets/libs/fullpage/jquery-ui.css'>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="static/bootstrap.min.js"></script>
@@ -38,12 +43,6 @@
         <script type="text/javascript" src="static/jquery.autocomplete.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
         <script src="static/typeahead.bundle.js"></script>
-        <style>
-        .tt-dropdown-menu
-        {
-            background-color:#FFF;
-            border: 1px solid black;
-        }
-        </style>
+    
     </body>
 </html>

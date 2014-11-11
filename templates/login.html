@@ -1,18 +1,20 @@
 {% extends "base.html" %}
 {% block body %}
-<div id="loginBox">
-    <form action="/login" method="POST">
-        <div>
-            <label class="leftLabel" for="email">Email</label>
+
+<div class="login-card">
+    <h1 class="login-title"> Log-in</h1><br>
+    <form action="{{ url_for("login_form") }}"  method="POST">
+       
             <input type="text" id="email" name="email" placeholder="email">
-        </div>
-        <div>
-            <label class="leftLabel" for="password">Password</label>
+        
             <input type="password" id="password" name="password" placeholder="password">
-        </div>
-        <div>
-            <input class="loginButton" type="submit" value="Login">
-        </div>
+       
+            <input type="submit" name="login" class="login login-submit" type="submit" value="Sign In">
     </form>
+    <div class ="login-help">
+    <p>Not a member?<a id="register" href="/signup"> Sign up now!</a></p>
 </div>
+</div>
+ <script src='http://codepen.io/assets/libs/fullpage/jquery_and_jqueryui.js'></script>
+
 {% endblock %}

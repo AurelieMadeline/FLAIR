@@ -1,27 +1,22 @@
 {% extends "base.html" %}
 {% block body %}
  
-<div class="container">
+<div class="login-card">
+    <h1 class="login-title">Sign up</h1><br>
     <form action="{{ url_for("user_signup") }}" method="POST">
-    	<div>
-            <label class="leftLabel" for="age">Username</label>
+    	
             <input type="text" id="username" name="username" placeholder="username">
-        </div>
-        <div>
-            <label class="leftLabel" for="email">Email</label>
+       
             <input type="text" id="email" name="email" placeholder="email">
-        </div>
-        <div>
-            <label class="leftLabel" for="password">Password</label>
+      
             <input type="password" id="password" name="password" placeholder="password">
-        </div>
-        <div>
-            <label class="leftLabel" for="location">Location</label>
+       
             <input type="text" data-provide="typeahead" class="typeahead form-control" id="location" name="location" placeholder="enter your city">
-        </div>
-        <div>
-            <input class="loginButton" type="submit" value="Signup">
-        </div>
+      
+            <input type="submit" name="login" class="login login-submit" type="submit" value="Sign me up!">
+
     </form>
-</div
+</div>
+ <script src='http://codepen.io/assets/libs/fullpage/jquery_and_jqueryui.js'></script>
+
 {% endblock %} 
