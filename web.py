@@ -6,7 +6,7 @@ UPLOAD_FOLDER = 'static/images/'
 ALLOWED_EXTENSIONS = set(['png','jpg', 'jpeg'])
 
 app = Flask(__name__)
-app.secret_key ="f\x81*I\x19\xd5\xb3\x98o\x9b\xf7\xd0\x0b\xb0H9\xcb\xd9\xfbH\x02\xfd\xe2\xf9"
+app.secret_key ="ABC"
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 @app.route("/")
