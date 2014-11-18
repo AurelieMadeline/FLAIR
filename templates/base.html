@@ -2,27 +2,28 @@
     <head>
         <link rel="stylesheet" href="/static/css/style.css" />
         <link href='http://fonts.googleapis.com/css?family=Raleway:500' rel='stylesheet' type='text/css'>
-        <link rel='stylesheet' href='http://codepen.io/assets/libs/fullpage/jquery-ui.css'>
+    
 
     </head>
     <body>
        <div class="navbar">
-        <ul class="menu">
-             <li id="menu-item">
-                <a href="/login">Log in </a>
-            </li>
-            <li id="menu-item">
-                <a href="/signup">Sign up </a>
-            </li>
+       <div class="menubar">
+       <ul>
+        <li><a href="/"> Home</a></li>
+        <li><a href="/profile"> Profile </a></li>
+        <li><a href="/signup"> Sign up </a></li>
+        <li><a href="/login"> Log in </a>
+        <ul>
+            <li><a href="/logout"> Log out</a></li>
         </ul>
+        </li>
+ 
         </div>
+    </div>
         <div class=pic-body></div>
 
-        <div class= content">
-
-
+    <div class= "content">
         <div class="container">
-
             {% with messages = get_flashed_messages() %}
             {% if messages %}
             {% for message in messages %}

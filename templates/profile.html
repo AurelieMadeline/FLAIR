@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="profile_box">
+<div id="profile"> 
+	<img src="#" style="width:150px;height:150px">
+</div>
+<div id="profile_info"> 
+<h3>{{ user.username }}</h3>
+<h4>{{user.location.location_name}} </h4>
+</div>
+<div id="upload_b">
+<a href="/upload"> Upload Image</a>
+</div>
+</div>
+
+<ul class="flex-container">
+{% for i in pic_id %}
+
+<li class="flex-item">
+	<img src="{{ url_for('static', filename ='images/'+ i.filename) }}">
+	<div class="description">
+	<p><b>Notes</b>: {{ i.notes}}</p>
+	<p><b>Location posted</b>: {{i.location.location_name}}</p>
+</li>
+{% endfor %}
+</ul>
+<div>
+</div>
+
+{% endblock %} 

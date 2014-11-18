@@ -1,20 +1,15 @@
 {% extends "base.html" %}
 {% block body %}
-    <title>Upload image</title>
-    <h1 id="upload_title">Upload your image</h1>
-    <form action="{{ url_for("upload_file") }}" method=post enctype=multipart/form-data>
-      <input id="choose_file" type=file name=file> <br>
-
-       <div class="info_submit">
-          <input type="text" id="notes" name="notes" placeholder="tell about your outfit!"> 
-          <div>
-          <input type="text" data-provide="typeahead" class="typeahead form-control" id="location_upload" name="location" placeholder="enter your city">
-          </div> <br>
-           <select name="style" id="options">
-				<option value="Style1">Choose your style</option>
+ <form action="{{ url_for("index") }}" method=post enctype=multipart/form-data>
+       <div class="search_form">
+         <input type="text" data-provide="typeahead" class="typeahead form-control" name="location" placeholder="enter a city">
+    	
+           	<select name="style" id="options2">
+				<option value="Style1">Choose a style</option>
 				<option value="Street style">Street style</option>
 				<option value="Sporty">Sporty</option>
 				<option value="Vintage">Vintage</option>
+				<option value="Vintage">Hipster</option>
 				<option value="Hipster">Festival</option>
 				<option value="Classic">Classic</option>
 				<option value="Elegent">Elegent</option>
@@ -37,9 +32,13 @@
 				<option value="Earthy">Earthy</option>
 				<option value="Hippie">Hippie</option>
 				</select>
-        <br>
-        <input type="submit" value="Submit">
+	<input type="submit" value="Go!">
     </form>
    </div>
-
+   
+   <div class="style_matches">
+{% for i in match %}
+<img src="{{ url_for('static', filename ='images/'+ i.filename) }}" width="350" height="450">
+<p>Notes: {{ i.notes}}</p>
+{% endfor %}
 {% endblock %} 

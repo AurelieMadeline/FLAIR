@@ -9,12 +9,22 @@ app = Flask(__name__)
 app.secret_key ="ABC"
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-@app.route("/")
+@app.route("/", methods=['GET', 'POST'])
 def index():
-    return render_template("test.html")
+    style = request.form.get("style")
+    location = request.form.get("location")
+    match=model.session.query(model.Picture).\
+                    filter_by(style = style).\
+                    join(model.Picture.location, aliased=True).\
+                    filter_by(location_name=location)
+    
+    return render_template("home.html", match=match)
 
 @app.route("/login")
 def login_form():
+    user_id=session.get("user_id")
+    if user_id:
+        return redirect ("/profile")
     return render_template("login.html")
 
 @app.route("/signup")
@@ -51,7 +61,7 @@ def user_signup():
         u.email = email
         u.password = password # hash later?
        
-        # how do we turn location into an id?
+        # how do I turn location into an id?
         l= model.session.query(model.Location).filter_by(location_name=location).first()
         if not l:
             l=model.Location()
@@ -70,7 +80,7 @@ def user_signup():
         flash("Successfully signed up!")
 
 
-    return redirect("/")
+    return redirect("/profile")
 
 @app.route("/login", methods=["POST"])
 def user_login():
@@ -80,9 +90,9 @@ def user_login():
     if u:
         flash("Login successful")
         session["user_email"] = u.email
-        session["user_id"] = str(u.id)
+        session["user_id"] = u.id
         print session
-        return redirect("/")
+        return redirect("/profile")
     else:
         flash("Email/password not valid, please try again.")
         return redirect("/login")
@@ -93,7 +103,7 @@ def user_logout():
     session["user_id"] = None
     flash("Logout successful")
     print session
-    return redirect("/")
+    return redirect("/login")
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -102,8 +112,6 @@ def allowed_file(filename):
 @app.route("/upload", methods=['GET', 'POST'])
 def upload_file():
 
-    #to check if user_id is in session
-
     if request.method == 'POST':
         file = request.files['file']
         if file and allowed_file(file.filename):
@@ -111,14 +119,12 @@ def upload_file():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             notes = request.form.get("notes")
             style = request.form.get("style")
-            brand = request.form.get("brand")
             location = request.form.get("location")
             p=model.Picture()
             p.user_id = session["user_id"]
             p.filename = filename
             p.notes = notes
             p.style = style
-            p.brand = brand
 
             l= model.session.query(model.Location).filter_by(location_name=location).first()
             if not l:
@@ -131,8 +137,8 @@ def upload_file():
 
             model.session.add(p)
             model.session.commit()
-
-            return redirect(url_for('success_upload',
+            
+            return redirect(url_for('show_profile',
                                     filename=filename))
     return render_template ("upload.html")
 
@@ -141,10 +147,19 @@ def uploaded_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'],
                                filename)
 
+@app.route("/profile")
+def show_profile():
+    user_id=session.get("user_id")
+    if user_id==None:
+        return redirect ("/login")
+    else:
+        user_obj= model.session.query(model.User).filter_by(id=session["user_id"]).first()
+        pic_id=model.session.query(model.Picture).filter_by(user_id=session["user_id"]).all()
+    
+    return render_template("profile.html", user=user_obj, pic_id=pic_id)
 
-@app.route("/fileview/<filename>")
-def success_upload(filename):
-    return render_template("preview.html")
+
 
 if __name__ == "__main__":
     app.run(debug = True)
+

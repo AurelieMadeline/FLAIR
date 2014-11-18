@@ -1,46 +1,96 @@
+/*base.html navigation bar*/
+
+/*(the picture top)*/
 .navbar {
-	border-bottom: 1px solid black;
 	height: 100px;
 	background-image:url("/static/img/header.jpg");
 	background-position:left top;
 	background-repeat:no-repeat;
-
 }
-#menu-item{
-	float:right;
-	margin-top: 65px;
-	margin-right: 20px;
-	font-family:'Raleway',sans-serif;
-	font-weight: 500; 
-	font-size: 16px;
-	color:#000000;
-}
-a:link {
-    text-decoration: none;
-
-}
-.tt-dropdown-menu
-        {
-            background-color:#FFF;
-            border: 1px dashed #F08080;
-        }
+/*(the picture body)*/
 
 .pic-body {
- 
- 	background-image:url("/static/img/2.jpg");
-	background-position:bottom;
-	background-repeat:no-repeat;
-	width:500px;
-	height:92px;
-
+  background-image:url("/static/img/2.jpg");
+  background-position:bottom;
+  background-repeat:no-repeat;
+  width:496px;
+  height:92px;
 }
+
+/*(navigation:Login,Logout,Signup,Home)*/
+ul {
+  display: inline;
+  list-style: none;
+}
+ul li {
+  font-family:'Raleway',sans-serif;
+  font-weight: 500; 
+  font-size: 16px;
+  color:#000000;
+  display: inline-block;
+  position: relative;
+  padding: 15px 20px;
+  cursor: pointer;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+}
+ul li:hover {
+  color: #d4a5ad;
+}
+ul li ul {
+  padding: 0;
+  position: absolute;
+  top: 45px;
+  width: 100px;
+  left:0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transiton: opacity 0.2s;
+  -moz-transition: opacity 0.2s;
+  -ms-transition: opacity 0.2s;
+  -o-transition: opacity 0.2s;
+  -transition: opacity 0.2s;
+}
+ul li ul li { 
+  background: #ffffff; 
+  display: block; 
+  color:#1C1C1C;
+}
+ul li ul li:hover { background: #ffffff; }
+ul li:hover ul {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+
+a:link {
+  text-decoration:none;
+}
+a:hover{color: #d4a5ad;
+  }
+
+.menubar{
+  float: right;
+  padding-top:55px;
+}
+
+/*(login/signup forms have the same class login-card)*/
+
+/*(the background window)*/
 
 .login-card {
   padding: 30px;
   padding-top: 20px;
   padding-left: 40pxpx;
   padding-right: 32px;
-  width: 274px;
+  width: 275px;
   background-color: #DEFAF8;
   margin: 0 auto 10px;
   border-radius: 5px;
@@ -48,7 +98,9 @@ a:link {
   overflow: hidden;
 }
 
-.login-title{
+/*(title Log in)*/
+
+.login-title {
   text-align: center;
   font-size: 2.1em;
   font-family:'Railway',sans-serif; 
@@ -60,20 +112,24 @@ outline-size: 2px;
 outline-color: #FFFCD0;
 }
 
+/*(sumbit button)*/
+
 .login-card input[type=submit] {
   width: 100%;
   display: block;
   margin-bottom: 10px;
   position: relative;
-  background-color: #FFFCD0;
+  background-color: #fdfbe4;
   box-shadow: 2px 2px 2px #888888;
   border-radius: 5px;
 }
 
+/*(the form)*/
+
 .login-card input[type=text], input[type=password] {
   height: 44px;
   font-size: 16px;
-  width: 100%;
+  width: 275px;
   margin-bottom: 10px;
   background: #fff;
   border: 1px solid #111A18;
@@ -81,25 +137,189 @@ outline-color: #FFFCD0;
   padding: 0 8px;
 }
 
+#location {
+  width: 275px;
+}
+/*(submit button text)*/
+
 .login {
   text-align: center;
   font-size: 14px;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Railway', sans-serif;
   height: 36px;
   padding: 0 8px;
   font-weight: bold;
 }
 
+/*(Not a member? Sign up now)*/
+
 .login-help {
   width: 100%;
   text-align: center;
   font-size: 14px;
-  color:#B6B6B4;
+  color:#6E6E6E;
+  font-family:'Railway',sans-serif; 
+
 }
+/*(sign me up now!)*/
+
 #register{
 	color:#848482;
-	font-weight: bold;
+  font-family:'Railway',sans-serif; 
+  font-weight: bold;
 }
-#location {
-width: 274px;
+#register:hover {
+  color: #d4a5ad;
 }
+
+.tt-dropdown-menu {
+background-color:#ffffff;
+border: 1px dashed #F08080;
+}
+
+
+
+/*(upload page)*/
+
+.info_submit {
+  margin-left: 70px;
+}
+
+.info_submit input[type=submit] {
+  width: 410px;
+  height: 30px;
+  display: block;
+  margin-top: 10px;
+  position: relative;
+  background-color: #fdfbe4;
+  box-shadow: 2px 2px 2px #888888;
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: center;
+  font-size: 14px;
+  font-family: 'Railway', sans-seri
+}
+
+.info_submit input[type=text]{
+  height: 44px;
+  font-size: 16px;
+  width: 410px;
+  margin-bottom: 10px;
+  background: #fff;
+  border: 1px solid #111A18;
+  border-top: 1px solid #111A18;
+  padding: 0 8px;
+}
+#location_upload {
+  width: 410px;
+}
+
+#upload_title{
+  margin-left: 150px;
+  font-family:'Railway',sans-serif; 
+  font-weight: 500;
+  margin-top: 30px;
+}
+
+#notes {
+height:70px;
+}
+
+#options {
+width: 410px; 
+border: 1px solid black;
+background: #fff;
+}
+
+#choose_file {
+margin-left: 70px;
+margin-bottom: 10px;
+}
+
+
+
+/*(profile page)*/
+
+#profile {
+  float:left;
+}
+
+#profile_info {
+  display: inline-block;
+  margin-left: 50px;
+}
+
+.profile_box {
+  margin-top: 10px;
+  border-bottom: 1px solid black;
+  height: 170px;
+  width: 1425px;
+  font-family:'Raleway',sans-serif;
+  font-weight: 500;
+
+}
+#upload_b {
+  text-align:right;
+  margin-right: 25px;
+  padding-top:30px;
+}
+
+.flex-container {
+  /* We first create a flex layout context */
+  display: flex;
+  flex-flow: row wrap;
+  /* Then we define how is distributed the remaining space */
+  justify-content: space-around;
+}
+.flex-item img{
+  width:290px;
+  height: 395px;
+}
+
+.description {
+ font-family: 'Railway', sans-serif;
+ font-size: 13px;
+}
+
+/*(home page)*/
+
+.search_form input[type=text]{
+  height: 30px;
+  font-size: 16px;
+  width: 240px;
+  display: inline-block;
+  background: #fff;
+  border: 1px solid #111A18;
+  border-top: 1px solid #111A18;
+  padding: 0 8px;
+  border-radius: 5px;
+  margin-top:-19px;
+}
+
+#options2{
+width: 240px; 
+height:30px;
+border: 1px solid black;
+background: #fff;
+margin-left: 10px;
+display: inline-block;
+position: relative;
+}
+.search_form input[type=submit] {
+  width: 70px;
+  height: 28px;
+  margin-top: 10px;
+ /* position: relative;*/
+  display: inline-block;
+  background-color: #fdfbe4;
+  box-shadow: 2px 2px 2px #888888;
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: center;
+  font-size: 12px;
+  font-family: 'Railway', sans-serif
+}
+
+
+
+

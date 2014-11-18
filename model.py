@@ -23,7 +23,6 @@ class User(Base):
 	email = Column(String(64), nullable =False)
 	password = Column(String(64), nullable=False)
 	location_id = Column(Integer, ForeignKey('locations.id'))
-	
 	location = relationship("Location", backref=backref("users"))
 
 class Picture(Base):
@@ -32,10 +31,8 @@ class Picture(Base):
 	filename = Column(String, nullable=False, unique=True)
 	notes = Column(String, nullable=True)
 	style = Column(String, nullable=False)
-	brand = Column (String, nullable=True)
 	user_id = Column(Integer, ForeignKey('users.id'))
 	location_id = Column(Integer, ForeignKey('locations.id'))
-	# url = Column(String, nullable=True)
 
 	user = relationship("User", backref=backref("pictures", order_by=id))
 	location = relationship("Location", backref=backref("pictures"))
@@ -44,6 +41,13 @@ class Location(Base):
 	__tablename__="locations"
 	id = Column(Integer, primary_key=True)
 	location_name = Column(String,nullable=False)
+
+# class Avatar(Base):
+# 	__table__="avatars"
+# 	id = Column (Integer, primary_key=True)
+# 	filename = Column(String, nullable=False, unique=True)
+# 	user_id = Column(Integer, ForeignKey('users.id'))
+# 	user = relationship("User", backref=backref("profile_pics", order_by=id))
 
 # def connect():
     # global ENGINE
