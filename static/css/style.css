@@ -3,21 +3,15 @@
 /*(the picture top)*/
 .navbar {
 	height: 100px;
-	background-image:url("/static/img/header.jpg");
-	background-position:left top;
-	background-repeat:no-repeat;
-}
-/*(the picture body)*/
-
-.pic-body {
-  background-image:url("/static/img/2.jpg");
-  background-position:bottom;
-  background-repeat:no-repeat;
-  width:496px;
-  height:92px;
+  background-color: #DEFAF8;
 }
 
 /*(navigation:Login,Logout,Signup,Home)*/
+a:-webkit-any-link {
+color: #6E6E6E;
+cursor: auto;
+}
+
 ul {
   display: inline;
   list-style: none;
@@ -26,7 +20,7 @@ ul li {
   font-family:'Raleway',sans-serif;
   font-weight: 500; 
   font-size: 16px;
-  color:#000000;
+  color:#6E6E6E;
   display: inline-block;
   position: relative;
   padding: 15px 20px;
@@ -46,8 +40,6 @@ ul li ul {
   top: 45px;
   width: 100px;
   left:0;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
   box-shadow: none;
   display: none;
   opacity: 0;
@@ -92,7 +84,9 @@ a:hover{color: #d4a5ad;
   padding-right: 32px;
   width: 275px;
   background-color: #DEFAF8;
-  margin: 0 auto 10px;
+  margin-top:60px;
+  margin-left: 550px;
+
   border-radius: 5px;
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.3);
   overflow: hidden;
@@ -175,6 +169,8 @@ outline-color: #FFFCD0;
 .tt-dropdown-menu {
 background-color:#ffffff;
 border: 1px dashed #F08080;
+text-align: left;
+margin-left: 5px;
 }
 
 
@@ -266,60 +262,153 @@ margin-bottom: 10px;
 
 .flex-container {
   /* We first create a flex layout context */
-  display: flex;
-  flex-flow: row wrap;
-  /* Then we define how is distributed the remaining space */
-  justify-content: space-around;
+  display : inline-flex;
+ 
 }
 .flex-item img{
   width:290px;
   height: 395px;
+  margin:10px;
+}
+.flex-item:hover  {
+ -webkit-transform:scale(1.3);
+transform:scale(1.3);
 }
 
 .description {
  font-family: 'Railway', sans-serif;
  font-size: 13px;
+ margin-left: 10px;
 }
 
 /*(home page)*/
 
 .search_form input[type=text]{
-  height: 30px;
-  font-size: 16px;
-  width: 240px;
+  height: 32px;
+  font-size: 14px;
+  width: 300px;
   display: inline-block;
   background: #fff;
-  border: 1px solid #111A18;
-  border-top: 1px solid #111A18;
+  border: 2px solid #C0C0C0;
   padding: 0 8px;
   border-radius: 5px;
   margin-top:-19px;
+  font-family:'Raleway',sans-serif;
+  font-weight: 500;
 }
+.search_form{
+  text-align: center;
+  margin-top: 20px;
 
+}
 #options2{
 width: 240px; 
 height:30px;
-border: 1px solid black;
+border: 2px solid #C0C0C0;
 background: #fff;
 margin-left: 10px;
 display: inline-block;
 position: relative;
+color:#A8A8A8 ;
+font-size: 14px;
+font-family:'Raleway',sans-serif;
+font-weight: 500;
 }
+
 .search_form input[type=submit] {
-  width: 70px;
-  height: 28px;
+  width: 80px;
+  height: 30px;
   margin-top: 10px;
- /* position: relative;*/
   display: inline-block;
-  background-color: #fdfbe4;
-  box-shadow: 2px 2px 2px #888888;
+  background-color: #fdd234;
   border-radius: 5px;
   font-weight: bold;
   text-align: center;
-  font-size: 12px;
-  font-family: 'Railway', sans-serif
+  font-family: 'Railway', sans-serif;
+  color:#ffffff;
+  font-size: 14px;
+  border:none;
+  margin-left: 10px;
+
+}
+.search_form input[type=submit]:hover {
+-webkit-box-shadow: 0px 0px 5px 5px rgba(152, 211, 207, .75);
+box-shadow: 0px 0px 5px 5px rgba(152, 211, 207,.75);
+-webkit-transition: all 0.7s ease;
+transition: all 0.7s ease;
+}
+.search_form input[type=submit] {
+-webkit-box-shadow: 0px 0px 5px 5px rgba(255, 255, 255, .75);
+box-shadow: 0px 0px 5px 5px rgba(255, 255, 255, .75);
 }
 
+/*(the girl)*/
 
+@-webkit-keyframes large-wave {
+from { -webkit-transform: rotate(0deg); }
+to { -webkit-transform: rotate(-15deg); }
+}
 
+@-webkit-keyframes medium-wave {
+from { -webkit-transform: rotate(0deg); }
+to { -webkit-transform: rotate(-12deg); }
+}
 
+@-webkit-keyframes small-wave {
+from { -webkit-transform: rotate(0deg); }
+to { -webkit-transform: rotate(-10deg); }
+}
+
+@keyframes large-wave {
+from { transform: rotate(0deg); }
+to { transform: rotate(-15deg); }
+}
+
+@keyframes medium-wave {
+from { transform: rotate(0deg); }
+to { transform: rotate(-12deg); }
+}
+
+@keyframes small-wave {
+from { transform: rotate(0deg); }
+to { transform: rotate(-10deg); }
+}
+
+.top {
+-webkit-animation: large-wave 5s infinite alternate;
+animation: large-wave 5s infinite alternate;
+}
+
+.middle {
+-webkit-animation: medium-wave 5.5s infinite alternate;
+animation: medium-wave 5.5s infinite alternate;
+}
+
+.bottom {
+-webkit-animation: small-wave 6s infinite alternate;
+animation: small-wave 6s infinite alternate;
+}
+
+@-webkit-keyframes dash {
+from { stroke-dashoffset: 1000; }
+to { stroke-dashoffset: 0; }
+}
+
+@keyframes dash {
+from { stroke-dashoffset: 1000; }
+to { stroke-dashoffset: 0; }
+}
+
+.wind {
+stroke-dasharray: 100;
+opacity: 0.25;
+-webkit-animation: dash 35s linear infinite;
+animation: dash 35s linear infinite;
+}
+
+.girl{
+min-height: 100%;
+position: relative;
+margin-left: 40px;
+
+}

@@ -13,12 +13,26 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 def index():
     style = request.form.get("style")
     location = request.form.get("location")
-    match=model.session.query(model.Picture).\
+    print "style: ", style
+    print 'location: ', location
+    if location == "":
+        print "querying for style"
+        match= model.session.query(model.Picture).\
+                    filter_by(style = style).all()
+    elif style == "Style1":
+        print "querying for location"
+        match=model.session.query(model.Picture).\
+                    join(model.Picture.location, aliased=True).\
+                    filter_by(location_name=location) 
+    else:
+        print "querying for both style and location"
+        match=model.session.query(model.Picture).\
                     filter_by(style = style).\
                     join(model.Picture.location, aliased=True).\
                     filter_by(location_name=location)
-    
+    print match
     return render_template("home.html", match=match)
+
 
 @app.route("/login")
 def login_form():
@@ -29,6 +43,9 @@ def login_form():
 
 @app.route("/signup")
 def signup_form():
+    user_id=session.get("user_id")
+    if user_id:
+        return redirect ("/profile")
     return render_template("signup_form.html")
 
 @app.route("/process_signup", methods=["POST"])
@@ -52,7 +69,7 @@ def user_signup():
 
     # if exists, ask if they want to login
     if u:
-        flash("User already exists! Please, login.")
+        flash("User already exists. Please, login.")
         return redirect(url_for("login_form"))
     # if doesn't exist, add user info to database as new user
     else:
@@ -94,14 +111,14 @@ def user_login():
         print session
         return redirect("/profile")
     else:
-        flash("Email/password not valid, please try again.")
+        flash("Email or password not valid, please try again.")
         return redirect("/login")
 
 @app.route("/logout")
 def user_logout():
     session["user_email"] = None
     session["user_id"] = None
-    flash("Logout successful")
+    flash("You are successfully logged out!")
     print session
     return redirect("/login")
 

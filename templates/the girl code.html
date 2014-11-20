@@ -1,53 +1,3 @@
-{% extends "base.html" %}
-{% block body %}
- <form action="{{ url_for("index") }}" method="post" enctype="multipart/form-data">
-       <div class="search_form">
-         <input type="text" data-provide="typeahead" class="typeahead form-control" name="location" placeholder="enter a city">
-        
-            <select name="style" id="options2">
-                <option value="Style1">choose a style</option>
-                <option value="Street style">Street style</option>
-                <option value="Sporty">Sporty</option>
-                <option value="Vintage">Vintage</option>
-                <option value="Vintage">Hipster</option>
-                <option value="Hipster">Festival</option>
-                <option value="Classic">Classic</option>
-                <option value="Elegent">Elegent</option>
-                <option value="Wedding">Wedding</option>
-                <option value="Festival">Festival</option>
-                <option value="Glam">Glam</option>
-                <option value="Artistic">Artistic</option>
-                <option value="Sophisticated">Sophisticated</option>
-                <option value="Nautical">Nautical</option>
-                <option value="Bold">Bold</option>
-                <option value="Statement">Statement</option>
-                <option value="Boho">Boho</option>
-                <option value="Gangsta">Gangsta</option>
-                <option value="Harajuku">Harajuku</option>
-                <option value="Nerdy">Nerdy</option>
-                <option value="Grunge">Grunge</option>
-                <option value="Steampunk">Steampunk</option>
-                <option value="Preppy">Preppy</option>
-                <option value="Couture">Couture</option>
-                <option value="Earthy">Earthy</option>
-                <option value="Hippie">Hippie</option>
-                </select>
-    <input type="submit" value="Go!">
-   </div>
-    </form>
-   
-<ul class="flex-container">
-{% for i in match %}
-
-<li class="flex-item">
-<img src="{{ url_for('static', filename ='images/'+ i.filename) }}" width="350" height="450">
-<div class="description">
-<p>{{ i.notes}}</p>
-<div>
-</li>
-{% endfor %}
-</ul>
-
 <!-- THE GIRL  -->
 
 <div class="girl">
@@ -143,5 +93,3 @@
 <use class="wind" xlink:href="#wind-two" x="200" y="250" width="600" height="200" stroke-width="3" stroke-linecap="round" />
 </svg>
 </div>
-
-{% endblock %} 

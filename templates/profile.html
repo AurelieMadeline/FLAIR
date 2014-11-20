@@ -19,12 +19,11 @@
 <li class="flex-item">
 	<img src="{{ url_for('static', filename ='images/'+ i.filename) }}">
 	<div class="description">
-	<p><b>Notes</b>: {{ i.notes}}</p>
+	<p><b>Description</b>: {{ i.notes}}</p>
 	<p><b>Location posted</b>: {{i.location.location_name}}</p>
+</div>
 </li>
 {% endfor %}
 </ul>
-<div>
-</div>
 
 {% endblock %} 
