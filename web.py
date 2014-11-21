@@ -16,21 +16,20 @@ def index():
     print "style: ", style
     print 'location: ', location
     if location == "":
-        print "querying for style"
-        match= model.session.query(model.Picture).\
+              match= model.session.query(model.Picture).\
                     filter_by(style = style).all()
+
     elif style == "Style1":
-        print "querying for location"
         match=model.session.query(model.Picture).\
                     join(model.Picture.location, aliased=True).\
                     filter_by(location_name=location) 
     else:
-        print "querying for both style and location"
         match=model.session.query(model.Picture).\
                     filter_by(style = style).\
                     join(model.Picture.location, aliased=True).\
                     filter_by(location_name=location)
-    print match
+        # if match==None:
+        #     flash ("No results found")
     return render_template("home.html", match=match)
 
 
@@ -163,6 +162,14 @@ def upload_file():
 def uploaded_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'],
                                filename)
+
+# @app.route('/delete/<int:id>', methods=['POST'])
+# def remove(id):
+#     """Delete an uploaded file."""
+#     upload = Upload.query.get_or_404(id)
+#     delete(upload)
+#     return redirect(url_for('show_profile'))
+# http://flask-uploads.readthedocs.org/en/latest/
 
 @app.route("/profile")
 def show_profile():

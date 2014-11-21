@@ -25,6 +25,7 @@ class User(Base):
 	location_id = Column(Integer, ForeignKey('locations.id'))
 	location = relationship("Location", backref=backref("users"))
 
+
 class Picture(Base):
 	__tablename__="pictures"
 	id = Column (Integer, primary_key=True)
