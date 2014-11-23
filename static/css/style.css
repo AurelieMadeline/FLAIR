@@ -3,12 +3,27 @@
 /*(the picture top)*/
 .navbar {
 	height: 100px;
-  background-color: #DEFAF8;
+  background-color: #ffffff;
+  border-bottom: solid 1px #dadada;
+
+}
+.triangle{
+  margin-left: 698px;
+  margin-top: 1.9%;
 }
 
 /*(navigation:Login,Logout,Signup,Home)*/
+
+.left{
+  float:left;
+  margin-left: 440px;
+}
+.right{
+  float: right;
+  margin-right:420px;
+}
 a:-webkit-any-link {
-color: #6E6E6E;
+color: #A0A0A0;
 cursor: auto;
 }
 
@@ -20,7 +35,7 @@ ul li {
   font-family:'Raleway',sans-serif;
   font-weight: 500; 
   font-size: 16px;
-  color:#6E6E6E;
+  color:#A0A0A0;
   display: inline-block;
   position: relative;
   padding: 15px 20px;
@@ -78,10 +93,10 @@ a:hover{color: #d4a5ad;
 /*(the background window)*/
 
 .login-card {
-  padding: 30px;
   padding-top: 20px;
-  padding-left: 40pxpx;
-  padding-right: 32px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 25px;
   width: 275px;
   background-color: #DEFAF8;
   margin-top:60px;
@@ -167,11 +182,10 @@ outline-color: #FFFCD0;
 
 .tt-dropdown-menu {
 background-color:#ffffff;
-border: 1px dashed #F08080;
+border: 1px dashed #008583;
 text-align: left;
 margin-left: 5px;
 }
-
 
 
 /*(upload page)*/
@@ -315,29 +329,58 @@ transform:scale(1.3);
 }
 
 /*(home page)*/
+.welcome {
+ background-color:#f1f1f1;
+ height: 280px;
+ margin-left: 200px;
+ margin-right: 200px;
+}
 
+.welcome{
+  text-align: center;
+  font-family: 'Railway', sans-serif;
+  font-weight: 500;
+  padding-top: 30px;
+}
+.welcome h1 {
+  color:#fe6108;
+  font-size: 38px;
+}
+
+.welcome h3 {
+  color:#585858;
+  font-size: 20px;
+
+}
+.twist{
+ font-family: 'Cookie', cursive;
+ background: none;
+ font-size: 29px;
+ color:#585858;
+
+}
 .search_form input[type=text]{
-  height: 32px;
+  height: 40px;
   font-size: 14px;
   width: 300px;
   display: inline-block;
   background: #fff;
-  border: 2px solid #C0C0C0;
+  border: 1px solid #C0C0C0;
   padding: 0 8px;
   border-radius: 5px;
-  margin-top:-19px;
+  margin-top:-24px;
   font-family:'Raleway',sans-serif;
   font-weight: 500;
 }
 .search_form{
   text-align: center;
-  margin-top: 20px;
+  margin-top: 50px;
 
 }
 #options2{
-width: 240px; 
-height:30px;
-border: 2px solid #C0C0C0;
+width: 250px; 
+height:40px;
+border: 1px solid #C0C0C0;
 background: #fff;
 margin-left: 10px;
 display: inline-block;
@@ -348,12 +391,25 @@ font-family:'Raleway',sans-serif;
 font-weight: 500;
 }
 
+#options3{
+width: 100px; 
+height:40px;
+border: 1px solid #C0C0C0;
+background: #fff;
+margin-left: 10px;
+display: inline-block;
+position: relative;
+color:#A8A8A8 ;
+font-size: 14px;
+font-family:'Raleway',sans-serif;
+font-weight: 500;
+}
 .search_form input[type=submit] {
   width: 80px;
-  height: 30px;
+  height: 37px;
   margin-top: 10px;
   display: inline-block;
-  background-color: #fdd234;
+  background-color: #08d6d2;
   border-radius: 5px;
   font-weight: bold;
   text-align: center;
@@ -364,15 +420,12 @@ font-weight: 500;
   margin-left: 10px;
 
 }
+
 .search_form input[type=submit]:hover {
--webkit-box-shadow: 0px 0px 5px 5px rgba(152, 211, 207, .75);
-box-shadow: 0px 0px 5px 5px rgba(152, 211, 207,.75);
--webkit-transition: all 0.7s ease;
-transition: all 0.7s ease;
-}
-.search_form input[type=submit] {
 -webkit-box-shadow: 0px 0px 5px 5px rgba(255, 255, 255, .75);
 box-shadow: 0px 0px 5px 5px rgba(255, 255, 255, .75);
+-webkit-transition: all 0.7s ease;
+transition: all 0.7s ease;
 }
 
 /*(the girl)*/

@@ -2,28 +2,31 @@
     <head>
         <link rel="stylesheet" href="/static/css/style.css" />
         <link href='http://fonts.googleapis.com/css?family=Raleway:500' rel='stylesheet' type='text/css'>
-    
+        <link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
 
     </head>
     <body>
        <div class="navbar">
        <div class="menubar">
        <ul>
+        <span class="left">
         <li><a href="/"> Home</a></li>
         <li><a href="/profile"> Profile </a></li>
-        
+    </span>
+    <span class="right">
         <li><a href="/signup"> Sign up </a></li>
         <li><a href="/login"> Log in </a>
         <ul>
             <li><a href="/logout"> Log out</a></li>
         </ul>
         </li>
- 
+     </span>
         </div>
+        <div class="triangle"><img src="/static/img/triangle.png"></div>
     </div>
 
     <div class= "content">
-        <div class="container">
+      
             {% with messages = get_flashed_messages() %}
             {% if messages %}
             {% for message in messages %}
@@ -34,8 +37,8 @@
             {% endif %}
             {% endwith %}
             {% block body %}{% endblock %}
-        </div>
     </div>
+ 
          <link rel='stylesheet' href='http://codepen.io/assets/libs/fullpage/jquery-ui.css'>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->

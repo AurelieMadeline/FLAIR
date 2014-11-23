@@ -15,21 +15,25 @@ def index():
     location = request.form.get("location")
     print "style: ", style
     print 'location: ', location
-    if location == "":
-              match= model.session.query(model.Picture).\
-                    filter_by(style = style).all()
+    if request.method == 'POST':
+        if location == "":
+            match= model.session.query(model.Picture).\
+                        filter_by(style = style).all()
 
-    elif style == "Style1":
-        match=model.session.query(model.Picture).\
-                    join(model.Picture.location, aliased=True).\
-                    filter_by(location_name=location) 
+        elif style == "Style1":
+            match=model.session.query(model.Picture).\
+                        join(model.Picture.location, aliased=True).\
+                        filter_by(location_name=location).all()
+        else:
+            match=model.session.query(model.Picture).\
+                        filter_by(style = style).\
+                        join(model.Picture.location, aliased=True).\
+                        filter_by(location_name=location).all()
+        if match==[]:
+            flash("Oops, looks like no results found")
     else:
-        match=model.session.query(model.Picture).\
-                    filter_by(style = style).\
-                    join(model.Picture.location, aliased=True).\
-                    filter_by(location_name=location)
-        # if match==None:
-        #     flash ("No results found")
+        match=[]
+
     return render_template("home.html", match=match)
 
 
@@ -37,14 +41,14 @@ def index():
 def login_form():
     user_id=session.get("user_id")
     if user_id:
-        return redirect ("/profile")
+        return redirect("/profile")
     return render_template("login.html")
 
 @app.route("/signup")
 def signup_form():
     user_id=session.get("user_id")
     if user_id:
-        return redirect ("/profile")
+        return redirect("/profile")
     return render_template("signup_form.html")
 
 @app.route("/process_signup", methods=["POST"])
@@ -169,7 +173,7 @@ def uploaded_file(filename):
 #     upload = Upload.query.get_or_404(id)
 #     delete(upload)
 #     return redirect(url_for('show_profile'))
-# http://flask-uploads.readthedocs.org/en/latest/
+
 
 @app.route("/profile")
 def show_profile():

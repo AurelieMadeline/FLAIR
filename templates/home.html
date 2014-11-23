@@ -1,6 +1,13 @@
 {% extends "base.html" %}
 {% block body %}
+<div class="welcome">
+    <h1>WELCOME TO FLAIR</h1>
+    <h3>Find the world's unique 
+        <mark class="twist">styles</mark> 
+    </h3>
+
  <form action="{{ url_for("index") }}" method="post" enctype="multipart/form-data">
+
        <div class="search_form">
          <input type="text" data-provide="typeahead" class="typeahead form-control" name="location" placeholder="enter a city">
         
@@ -32,10 +39,15 @@
                 <option value="Earthy">Earthy</option>
                 <option value="Hippie">Hippie</option>
                 </select>
-    <input type="submit" value="Go!">
+            <select name="style" id="options3">
+                <option value="Male">Female</option>
+                <option value="Street style">Male</option>
+            </select>
+ <input type="submit" value= "Go">
    </div>
     </form>
-   
+</div>
+
 <ul class="flex-container">
 {% for i in match %}
 
@@ -47,6 +59,7 @@
 </li>
 {% endfor %}
 </ul>
+
 
 <!-- THE GIRL  -->
 
