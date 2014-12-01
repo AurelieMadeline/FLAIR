@@ -1,15 +1,9 @@
 {% extends "base.html" %}
 {% block body %}
 <div class="profile_box">
-<div id="profile"> 
-	<img src="#" style="width:150px;height:150px">
-</div>
-<div id="profile_info"> 
+<div class="profile_info"> 
 <h3>{{ user.username }}</h3>
-<h4>{{user.location.location_name}} </h4>
-</div>
-<div id="upload_b">
-<a href="/upload"> Upload Image</a>
+<h5>{{user.location.location_name}} </h5>
 </div>
 </div>
 
@@ -17,7 +11,7 @@
 {% for i in pic_id %}
 
 <li class="flex-item">
-	<img src="{{ url_for('static', filename ='images/'+ i.filename) }}">
+	<a href="/picture_view/{{i.id}}"> <img id={{i.id}} src="{{ url_for('static', filename ='images/'+ i.filename) }}"></a>
 	<div class="description">
 	<p><b>Description</b>: {{ i.notes}}</p>
 	<p><b>Location posted</b>: {{i.location.location_name}}</p>

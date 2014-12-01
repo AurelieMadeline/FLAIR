@@ -2,6 +2,7 @@ from flask import Flask, render_template, redirect, request, flash, session, url
 import model, os
 from werkzeug import secure_filename
 
+
 UPLOAD_FOLDER = 'static/images/'
 ALLOWED_EXTENSIONS = set(['png','jpg', 'jpeg'])
 
@@ -9,26 +10,29 @@ app = Flask(__name__)
 app.secret_key ="ABC"
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
+
 @app.route("/", methods=['GET', 'POST'])
 def index():
     style = request.form.get("style")
     location = request.form.get("location")
-    print "style: ", style
-    print 'location: ', location
-    if request.method == 'POST':
-        if location == "":
-            match= model.session.query(model.Picture).\
-                        filter_by(style = style).all()
+    gender = request.form.get("gender")
 
-        elif style == "Style1":
-            match=model.session.query(model.Picture).\
-                        join(model.Picture.location, aliased=True).\
-                        filter_by(location_name=location).all()
-        else:
-            match=model.session.query(model.Picture).\
-                        filter_by(style = style).\
-                        join(model.Picture.location, aliased=True).\
-                        filter_by(location_name=location).all()
+    if request.method == 'POST':
+
+        filters = {}
+        if gender:
+            filters['gender'] = gender
+        if style:
+            filters['style'] = style
+        match = model.session.query(model.Picture).\
+            filter_by(**filters)
+
+        if location:
+            match = match.join(model.Picture.location, aliased=True).\
+                filter_by(location_name=location)
+
+        match = match.all()
+
         if match==[]:
             flash("Oops, looks like no results found")
     else:
@@ -140,11 +144,13 @@ def upload_file():
             notes = request.form.get("notes")
             style = request.form.get("style")
             location = request.form.get("location")
+            gender = request.form.get("gender")
             p=model.Picture()
             p.user_id = session["user_id"]
             p.filename = filename
             p.notes = notes
             p.style = style
+            p.gender = gender
 
             l= model.session.query(model.Location).filter_by(location_name=location).first()
             if not l:
@@ -167,13 +173,18 @@ def uploaded_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'],
                                filename)
 
-# @app.route('/delete/<int:id>', methods=['POST'])
-# def remove(id):
-#     """Delete an uploaded file."""
-#     upload = Upload.query.get_or_404(id)
-#     delete(upload)
-#     return redirect(url_for('show_profile'))
+@app.route('/picture_view/<int:id>')
+def show_single_photo(id):
+     pic = model.session.query(model.Picture).get(id)
+     return render_template("view_picture.html", pic=pic)
 
+@app.route('/delete/<int:id>', methods=['POST'])
+def remove(id):
+    pic=model.session.query(model.Picture).get(id)
+    print pic
+    model.session.delete(pic)
+    model.session.commit()
+    return redirect(url_for('show_profile'))
 
 @app.route("/profile")
 def show_profile():

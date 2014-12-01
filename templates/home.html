@@ -10,9 +10,9 @@
 
        <div class="search_form">
          <input type="text" data-provide="typeahead" class="typeahead form-control" name="location" placeholder="enter a city">
-        
+       
             <select name="style" id="options2">
-                <option value="Style1">choose a style</option>
+                <option value="">choose a style</option>
                 <option value="Street style">Street style</option>
                 <option value="Sporty">Sporty</option>
                 <option value="Vintage">Vintage</option>
@@ -38,15 +38,20 @@
                 <option value="Couture">Couture</option>
                 <option value="Earthy">Earthy</option>
                 <option value="Hippie">Hippie</option>
+                <option value="Casual">Casual</option>
+                <option value="Flowery">Flowery</option>
+                <option value="Beach style">Beach style</option>
                 </select>
-            <select name="style" id="options3">
-                <option value="Male">Female</option>
-                <option value="Street style">Male</option>
+            <select name="gender" id="options3">
+                <option value="">Gender</option>
+                <option value="Female">Female</option>
+                <option value="Male">Male</option>
             </select>
  <input type="submit" value= "Go">
    </div>
     </form>
 </div>
+
 
 <ul class="flex-container">
 {% for i in match %}
@@ -54,8 +59,9 @@
 <li class="flex-item">
 <img src="{{ url_for('static', filename ='images/'+ i.filename) }}" width="350" height="450">
 <div class="description">
-<p>{{ i.notes}}</p>
-<div>
+<p><b>Description</b>:{{ i.notes}}</p>
+<p><b>Location posted</b>:{{i.location.location_name}}</p>
+</div>
 </li>
 {% endfor %}
 </ul>

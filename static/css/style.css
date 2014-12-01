@@ -2,14 +2,14 @@
 
 /*(the picture top)*/
 .navbar {
-	height: 100px;
+	height: 90px;
   background-color: #ffffff;
   border-bottom: solid 1px #dadada;
 
 }
 .triangle{
   margin-left: 698px;
-  margin-top: 1.9%;
+  margin-top: -1px;
 }
 
 /*(navigation:Login,Logout,Signup,Home)*/
@@ -21,6 +21,12 @@
 .right{
   float: right;
   margin-right:420px;
+}
+.logo{
+color:#08d6d2;
+font-size: 25px;
+margin-bottom: 5px;
+
 }
 a:-webkit-any-link {
 color: #A0A0A0;
@@ -47,7 +53,7 @@ ul li {
   transition: all 0.2s;
 }
 ul li:hover {
-  color: #d4a5ad;
+  color: #08d6d2;
 }
 ul li ul {
   padding: 0;
@@ -65,27 +71,16 @@ ul li ul {
   -o-transition: opacity 0.2s;
   -transition: opacity 0.2s;
 }
-ul li ul li { 
-  background:#f8f8ff; 
-  display: block; 
-  color:#1C1C1C;
-}
-ul li ul li:hover { background:#f8f8ff; }
-ul li:hover ul {
-  display: block;
-  opacity: 1;
-  visibility: visible;
-}
 
 a:link {
   text-decoration:none;
 }
-a:hover{color: #d4a5ad;
+a:hover{color: #08d6d2;
   }
 
 .menubar{
   text-align: center;
-  padding-top:55px;
+  padding-top:40px;
 }
 
 /*(login/signup forms have the same class login-card)*/
@@ -98,7 +93,7 @@ a:hover{color: #d4a5ad;
   padding-right: 50px;
   padding-bottom: 25px;
   width: 275px;
-  background-color: #DEFAF8;
+  background-color: #f1f1f1;
   margin-top:60px;
   margin-left: 550px;
   border-radius: 5px;
@@ -113,6 +108,7 @@ a:hover{color: #d4a5ad;
   font-size: 2.1em;
   font-family:'Railway',sans-serif; 
   font-weight: 400;
+  color: #585858;
 }
 
 input:focus, select:focus, textarea:focus {
@@ -127,9 +123,13 @@ outline-color: #FFFCD0;
   display: block;
   margin-bottom: 10px;
   position: relative;
-  background-color: #fdfbe4;
-  box-shadow: 2px 2px 2px #888888;
+  background-color: #08d6d2;
   border-radius: 5px;
+  border:none;
+  color:#ffffff;
+  font-family: 'Railway', sans-serif;
+  font-size: 16px;
+
 }
 
 /*(the form)*/
@@ -140,8 +140,7 @@ outline-color: #FFFCD0;
   width: 275px;
   margin-bottom: 10px;
   background: #fff;
-  border: 1px solid #111A18;
-  border-top: 1px solid #111A18;
+  border: 1px solid #C0C0C0;
   padding: 0 8px;
 }
 
@@ -177,7 +176,7 @@ outline-color: #FFFCD0;
   font-weight: bold;
 }
 #register:hover {
-  color: #d4a5ad;
+  color: #08d6d2;
 }
 
 .tt-dropdown-menu {
@@ -194,7 +193,7 @@ margin-left: 5px;
   margin-top: 65px;
   padding: 30px;
   width: 430px;
-  background-color: #DEFAF8;
+  background-color: #f1f1f1;
   border-radius: 5px;
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.3);
   overflow: hidden;
@@ -208,12 +207,14 @@ margin-left: 5px;
   display: block;
   margin-top: 10px;
   position: relative;
-  background-color: #fdfbe4;
-  box-shadow: 2px 2px 2px #888888;
+  background-color: #08d6d2;
+ /* box-shadow: 2px 2px 2px #888888;*/
   border-radius: 5px;
   font-weight: bold;
-  font-size: 14px;
-  font-family: 'Railway', sans-serif
+  font-size: 16px;
+  font-family: 'Railway', sans-serif;
+  border:none;
+  color: #ffffff;
 }
 
 .info_submit input[type=text]{
@@ -222,19 +223,20 @@ margin-left: 5px;
   width: 410px;
   margin-bottom: 10px;
   background: #fff;
-  border: 1px solid #111A18;
-  border-top: 1px solid #111A18;
+  border:1px solid #C0C0C0;
   padding: 0 8px;
   font-family: 'Railway', sans-serif
 }
 #location_upload {
   width: 410px;
+  margin-bottom: 0px;
 }
 
 #upload_title{
   font-family:'Railway',sans-serif; 
   font-weight: 500;
   text-align: center;
+  color: #585858;
 }
 
 #notes {
@@ -243,10 +245,31 @@ padding-bottom: 29px;
 }
 
 #options {
-width: 410px; 
-border: 1px solid black;
+width: 200px; 
+height: 40px;
+border: 1px solid #C0C0C0;
 background: #fff;
+font-family:'Railway',sans-serif; 
+color:#a9a9a9;
+font-size: 15px;
+margin-top: -10px;
+
 }
+
+#options4{
+width: 100px; 
+height:40px;
+border: 1px solid #C0C0C0;
+background: #fff;
+margin-left: 10px;
+display: inline-block;
+color:#a9a9a9;
+font-size: 14px;
+font-family:'Raleway',sans-serif;
+font-weight: 500;
+margin-top: -3px;
+}
+
 
 .custom-file-input::-webkit-file-upload-button {
   visibility: hidden;
@@ -254,21 +277,20 @@ background: #fff;
 .custom-file-input::before {
   content: 'Select';
   display: inline-block;
-  background: #fdfbe4;
-  border: 1px solid black;
+  background:#08d6d2;
   border-radius: 3px;
   outline: none;
   white-space: nowrap;
-  -webkit-user-select: none;
   cursor: pointer;
   font-family:'Railway',sans-serif; 
-  font-size: 12px;
+  font-size: 13px;
   text-align: center;
   height: 18px;
   width: 62px;
   margin-left: 11px;
   margin-bottom: 10px;
   padding-top: 4px;
+  color:#ffffff;
 
 }
 .custom-file-input:hover::before {
@@ -277,55 +299,52 @@ background: #fff;
 }
 .custom-file-input:active::before {
   background: #ffffff;
+  color: black;
 
 }
 
 
 /*(profile page)*/
 
-#profile {
-  float:left;
-}
-
-#profile_info {
+.profile_info {
   display: inline-block;
-  margin-left: 50px;
+  margin-left: 62px;
 }
 
 .profile_box {
   margin-top: 10px;
-  border-bottom: 1px solid black;
-  height: 170px;
+  border-bottom: solid 1px #dadada;
+  height: 100px;
   width: 1425px;
   font-family:'Raleway',sans-serif;
   font-weight: 500;
+  color:#585858;
 
-}
-#upload_b {
-  text-align:right;
-  margin-right: 25px;
-  padding-top:30px;
 }
 
 .flex-container {
-  /* We first create a flex layout context */
-  display : inline-flex;
- 
+  display: flex;
+  flex-flow: row wrap;
+  writing-mode: horizontal-tb;
+  margin-left: 85px;
+
 }
+
 .flex-item img{
-  width:290px;
-  height: 395px;
-  margin:10px;
+  height: 420px;
 }
 .flex-item:hover  {
  -webkit-transform:scale(1.3);
 transform:scale(1.3);
+z-index: 111;
 }
 
 .description {
  font-family: 'Railway', sans-serif;
  font-size: 13px;
- margin-left: 10px;
+ margin-left: 5px;
+ color:#585858;
+ background-color:#ffffff; 
 }
 
 /*(home page)*/
@@ -334,6 +353,7 @@ transform:scale(1.3);
  height: 280px;
  margin-left: 200px;
  margin-right: 200px;
+ margin-top: -13px;
 }
 
 .welcome{
@@ -343,8 +363,9 @@ transform:scale(1.3);
   padding-top: 30px;
 }
 .welcome h1 {
-  color:#fe6108;
-  font-size: 38px;
+  color:#ffffff;
+  font-size: 39px;
+  -webkit-text-stroke: 2px #fe6108;
 }
 
 .welcome h3 {
@@ -374,7 +395,7 @@ transform:scale(1.3);
 }
 .search_form{
   text-align: center;
-  margin-top: 50px;
+  margin-top: 45px;
 
 }
 #options2{
@@ -420,13 +441,11 @@ font-weight: 500;
   margin-left: 10px;
 
 }
-
-.search_form input[type=submit]:hover {
--webkit-box-shadow: 0px 0px 5px 5px rgba(255, 255, 255, .75);
-box-shadow: 0px 0px 5px 5px rgba(255, 255, 255, .75);
--webkit-transition: all 0.7s ease;
-transition: all 0.7s ease;
+input[type=submit]:active {
+background-color: #ffffff;
+color:#08d6d2;
 }
+
 
 /*(the girl)*/
 
@@ -493,8 +512,29 @@ animation: dash 35s linear infinite;
 }
 
 .girl{
-min-height: 100%;
-position: relative;
-margin-left: 40px;
+width:550px;
+margin-left: 31%;
+}
+
+/*(view_picture)*/
+.view img{
+  height:600px;
+  margin-top:30px;
+  margin-left: 500px;
+
+}
+.delete input[type=submit] {
+  width: 150px;
+  height: 30px;
+  margin-top: 10px;
+  background-color: #fe6108;
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: center;
+  font-family: 'Railway', sans-serif;
+  color:#ffffff;
+  font-size: 14px;
+  border:none;
+  margin-left: 650px;
 
 }

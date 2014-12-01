@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block body %}
+<div class= "view">
+<img id= "{{ pic.filename}}" src="{{ url_for('static', filename ='images/'+ pic.filename) }}">
+</div>
+<div class="delete">
+<form action="/delete/{{pic.id}}" method="post">
+<input type="submit" value="Delete">
+</form> 
+</div>
+{% endblock %}

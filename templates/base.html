@@ -7,23 +7,26 @@
     </head>
     <body>
        <div class="navbar">
-       <div class="menubar">
-       <ul>
-        <span class="left">
-        <li><a href="/"> Home</a></li>
-        <li><a href="/profile"> Profile </a></li>
-    </span>
-    <span class="right">
-        <li><a href="/signup"> Sign up </a></li>
-        <li><a href="/login"> Log in </a>
-        <ul>
-            <li><a href="/logout"> Log out</a></li>
-        </ul>
-        </li>
-     </span>
+            <div class="menubar">
+                <ul>
+                    <li><a href="/"> Home</a></li>
+                    <li><a href="/profile"> Profile </a></li>
+                  
+                    <li class="logo">FLAIR</li>
+                    {% if not session.user_id %}
+                    <li><a href="/signup"> Sign up </a></li>
+                    <li><a href="/login"> Log in </a></li>
+                    {% endif %}
+                    
+                    {% if session.user_id %}
+                    <li><a href="/upload"> Upload</a></li>
+                    <li><a href="/logout"> Log out</a></li>
+                    {% endif %}
+                </ul>
+            </div>
         </div>
-        <div class="triangle"><img src="/static/img/triangle.png"></div>
-    </div>
+    <div class="triangle"><img src="/static/img/triangle.png"></div>
+  
 
     <div class= "content">
       

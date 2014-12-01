@@ -25,7 +25,6 @@ class User(Base):
 	location_id = Column(Integer, ForeignKey('locations.id'))
 	location = relationship("Location", backref=backref("users"))
 
-
 class Picture(Base):
 	__tablename__="pictures"
 	id = Column (Integer, primary_key=True)
@@ -34,7 +33,7 @@ class Picture(Base):
 	style = Column(String, nullable=False)
 	user_id = Column(Integer, ForeignKey('users.id'))
 	location_id = Column(Integer, ForeignKey('locations.id'))
-
+	gender = Column(String, nullable=False)
 	user = relationship("User", backref=backref("pictures", order_by=id))
 	location = relationship("Location", backref=backref("pictures"))
 
@@ -43,21 +42,6 @@ class Location(Base):
 	id = Column(Integer, primary_key=True)
 	location_name = Column(String,nullable=False)
 
-# class Avatar(Base):
-# 	__table__="avatars"
-# 	id = Column (Integer, primary_key=True)
-# 	filename = Column(String, nullable=False, unique=True)
-# 	user_id = Column(Integer, ForeignKey('users.id'))
-# 	user = relationship("User", backref=backref("profile_pics", order_by=id))
-
-# def connect():
-    # global ENGINE
-    # global Session
-
-    # ENGINE = create_engine("sqlite:///temp.db", echo=True)
-    # Session = sessionmaker(bind=ENGINE)
-
-    # return Session()
 
 # Base.metadata.create_all(engine)
 # print 'below create all'

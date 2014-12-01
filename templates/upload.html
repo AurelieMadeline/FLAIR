@@ -1,10 +1,9 @@
 {% extends "base.html" %}
 {% block body %}
 <div class="upload_page">
-    <title>Upload image</title>
     <h1 id="upload_title">Upload your image</h1>
-    <form action="{{ url_for("upload_file") }}" method=post enctype=multipart/form-data>
-      <input type="file" class="custom-file-input">
+    <form action="{{ url_for("upload_file") }}" method="POST" enctype="multipart/form-data">
+      <input class="custom-file-input" type=file name=file> 
 
        <div class="info_submit">
           <input type="text" id="notes" name="notes" placeholder="describe your style"> 
@@ -12,7 +11,7 @@
           <input type="text" data-provide="typeahead" class="typeahead form-control" id="location_upload" name="location" placeholder="enter a current city">
           </div> <br>
            <select name="style" id="options">
-				<option value="Style1">Choose your style</option>
+				<option value="Style1">choose your style</option>
 				<option value="Street style">Street style</option>
 				<option value="Sporty">Sporty</option>
 				<option value="Vintage">Vintage</option>
@@ -37,7 +36,14 @@
 				<option value="Couture">Couture</option>
 				<option value="Earthy">Earthy</option>
 				<option value="Hippie">Hippie</option>
+				<option value="Casual">Casual</option>
+				<option value="Flowery">Flowery</option>
+				<option value="Beach style">Beach style</option>
 				</select>
+			<select name="gender" id="options4">
+                <option value="Female">Female</option>
+                <option value="Male">Male</option>
+            </select>
         <br>
         <input type="submit" value="Submit">
     </form>
