@@ -2,7 +2,7 @@
 
 /*(the picture top)*/
 .navbar {
-	height: 90px;
+  height: 90px;
   background-color: #ffffff;
   border-bottom: solid 1px #dadada;
 
@@ -22,22 +22,36 @@
   float: right;
   margin-right:420px;
 }
-.logo{
+
+li .logo{
 color:#08d6d2;
 font-size: 25px;
 margin-bottom: 5px;
 
 }
+
 a:-webkit-any-link {
 color: #A0A0A0;
 cursor: auto;
 }
 
-ul {
+.flashes li{
+  font-family:'Raleway',sans-serif;
+  font-size: 14px;
+  list-style: none;
+  margin-left: -38px;
+  margin-top: -30px;
+  color:#fe6108;
+}
+
+.menubar ul,
+.flex-container {
   display: inline;
   list-style: none;
 }
-ul li {
+
+.flex-container .flex-item,
+.menubar ul li {
   font-family:'Raleway',sans-serif;
   font-weight: 500; 
   font-size: 16px;
@@ -52,10 +66,14 @@ ul li {
   -o-transition: all 0.2s;
   transition: all 0.2s;
 }
-ul li:hover {
+
+.flex-container .flex-item,
+.menubar ul li:hover {
   color: #08d6d2;
 }
-ul li ul {
+
+.flex-container ul li ul,
+.menubar ul li ul {
   padding: 0;
   position: absolute;
   top: 45px;
@@ -83,7 +101,6 @@ a:hover{color: #08d6d2;
   padding-top:40px;
 }
 
-/*(login/signup forms have the same class login-card)*/
 
 /*(the background window)*/
 
@@ -171,7 +188,7 @@ outline-color: #FFFCD0;
 /*(sign me up now!)*/
 
 #register{
-	color:#848482;
+  color:#848482;
   font-family:'Railway',sans-serif; 
   font-weight: bold;
 }
@@ -277,7 +294,7 @@ margin-top: -3px;
 .custom-file-input::before {
   content: 'Select';
   display: inline-block;
-  background:#08d6d2;
+  background:#fecb0d;
   border-radius: 3px;
   outline: none;
   white-space: nowrap;
@@ -308,7 +325,7 @@ margin-top: -3px;
 
 .profile_info {
   display: inline-block;
-  margin-left: 62px;
+  margin-left: 63px;
 }
 
 .profile_box {
@@ -420,7 +437,7 @@ background: #fff;
 margin-left: 10px;
 display: inline-block;
 position: relative;
-color:#A8A8A8 ;
+color:#A8A8A8;
 font-size: 14px;
 font-family:'Raleway',sans-serif;
 font-weight: 500;
@@ -446,6 +463,13 @@ background-color: #ffffff;
 color:#08d6d2;
 }
 
+.content ul li{
+  text-align: center;
+  list-style: none;
+  font-family: 'Railway', sans-serif;
+  color:#A0A0A0;
+
+}
 
 /*(the girl)*/
 
@@ -536,5 +560,6 @@ margin-left: 31%;
   font-size: 14px;
   border:none;
   margin-left: 650px;
+  cursor: pointer;
 
 }

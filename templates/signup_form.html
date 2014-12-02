@@ -3,6 +3,19 @@
  
 <div class="login-card">
     <h1 class="login-title">Sign up</h1><br>
+    <div class= "content-log">
+      
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% for message in messages %}
+            <ul class="flashes">
+                <li>{{message}}</li>
+            </ul>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+        
+    </div>
     <form action="{{ url_for("user_signup") }}" method="POST">
     	
             <input type="text" id="username" name="username" placeholder="username">

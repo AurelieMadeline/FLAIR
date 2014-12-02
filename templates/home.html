@@ -53,6 +53,20 @@
 </div>
 
 
+ <div class= "content">
+      
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% for message in messages %}
+            <ul class="flashes-home">
+                <li>{{message}}</li>
+            </ul>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+        
+    </div>
+
 <ul class="flex-container">
 {% for i in match %}
 
