@@ -5,13 +5,13 @@ The app allows users to upload their photos and descriptions, and other details 
 As well as to search styles by location and gender.
 
 Technology stack:
-Python
-Flask
-Jinja
-SQLAlchemy
-PostgreSQL
-Google API
-CSS/CSS3
-HTML/HTML5
+Python,
+Flask,
+Jinja,
+SQLAlchemy,
+PostgreSQL,
+Google API,
+CSS/CSS3,
+HTML/HTML5,
 JS
 
