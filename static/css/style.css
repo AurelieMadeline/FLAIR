@@ -5,7 +5,6 @@
   height: 90px;
   background-color: #ffffff;
   border-bottom: solid 1px #dadada;
-
 }
 .triangle{
   margin-left: 698px;
@@ -48,6 +47,7 @@ cursor: auto;
 .flex-container {
   display: inline;
   list-style: none;
+
 }
 
 .flex-container .flex-item,
@@ -324,8 +324,7 @@ margin-top: -3px;
 /*(profile page)*/
 
 .profile_info {
-  display: inline-block;
-  margin-left: 63px;
+  margin-left:210px;  
 }
 
 .profile_box {
@@ -343,7 +342,7 @@ margin-top: -3px;
   display: flex;
   flex-flow: row wrap;
   writing-mode: horizontal-tb;
-  margin-left: 85px;
+  margin-left: 155px;
 
 }
 

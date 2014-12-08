@@ -41,6 +41,7 @@
                 <option value="Casual">Casual</option>
                 <option value="Flowery">Flowery</option>
                 <option value="Beach style">Beach style</option>
+                <option value="Other">Other</option>
                 </select>
             <select name="gender" id="options3">
                 <option value="">Gender</option>
@@ -71,7 +72,7 @@
 {% for i in match %}
 
 <li class="flex-item">
-<img src="{{ url_for('static', filename ='images/'+ i.filename) }}" width="350" height="450">
+<img src="{{ url_for('static', filename ='images/'+ i.filename) }}">
 <div class="description">
 <p><b>Description</b>:{{ i.notes}}</p>
 <p><b>Location posted</b>:{{i.location.location_name}}</p>
